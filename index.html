@@ -3,320 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timesaver Auto - Mobile Oil & Tire Services</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Custom Google Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f8f2;
-            color: #1c2b38;
-            margin: 0;
-            padding: 0;
-            text-align: center;
+            background: #f4f4f4;
             display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background-color: #1c2b38;
-            color: #f8f8f2;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            height: 100vh;
         }
-
-        header img {
-            height: 60px;
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
         }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #f8f8f2;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #e8be3f;
-            color: #1c2b38;
-            padding: 15px 30px;
-            margin: 20px;
-            font-size: 20px;
-            text-decoration: none;
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
             border-radius: 5px;
         }
-
-        .service-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .service-buttons button {
-            background-color: #e8be3f;
-            color: #1c2b38;
-            padding: 10px 20px;
+        button {
+            background: #28a745;
+            color: white;
             border: none;
-            font-size: 16px;
+            padding: 10px 15px;
             cursor: pointer;
             border-radius: 5px;
         }
-
-        .service-buttons button:hover {
-            background-color: #d1a830;
-        }
-
-        section {
-            padding: 50px 20px;
-        }
-
-        #bookingForm {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 400px;
-            margin: auto;
-        }
-
-        #bookingForm select, 
-        #bookingForm input,
-        #bookingForm button {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 20px;
-            background-color: #1c2b38;
-            color: #f8f8f2;
+        button:hover {
+            background: #218838;
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="logo20.png" alt="Timesaver Auto Logo">
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#book">Book Now</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="book">
-        <h2 id="schedule-title">Schedule a Service</h2>
-        <div class="service-buttons">
-            <button onclick="selectService('oil-change'); scrollToForm();">Synthetic Oil Change</button>
-            <button onclick="selectService('tire-swap'); scrollToForm();">Seasonal Tire Swap</button>
-            <button onclick="selectService('tire-rotation'); scrollToForm();">Tire Rotation</button>
-            <button onclick="selectService('battery'); scrollToForm();">Battery Testing</button>
-            <button onclick="selectService('brake-repair'); scrollToForm();">Brake Repair</button>
-            <button onclick="selectService('suspension-repair'); scrollToForm();">Suspension Repair</button>
-        </div>
-        <form id="bookingForm" onsubmit="handleFormSubmit(event)">
-            <select id="year" name="year" required>
-                <option value="" disabled selected>YEAR</option>
-            </select>
-            <select id="make" name="make" required>
-                <option value="" disabled selected>MAKE</option>
-            </select>
-            <select id="model" name="model" required>
-                <option value="" disabled selected>MODEL</option>
-            </select>
-            <select id="service" name="service">
-                <option value="oil-change">Synthetic Oil Change - from $69.99</option>
-                <option value="tire-swap">Seasonal Tire Swap - $49.99</option>
-                <option value="tire-rotation">Tire Rotation - $49.99</option>
-                <option value="battery">Battery Testing - Diagnose & Quote - $49.99</option>
-                <option value="brake-repair">Brake Repair - Diagnose & Quote - $49.99</option>
-                <option value="suspension-repair">Suspension Repair - Diagnose & Quote - $49.99</option>
-            </select>
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
-            <input type="text" id="address" name="address" placeholder="Your Address" required>
-            <label for="date">Select a Date:</label>
-            <input type="date" id="date" name="date" required>
-            <select id="time" name="time" required>
-                <option value="" disabled selected>Select Time</option>
-            </select>
-            <button type="submit">Book Now</button>
+    <div class="form-container">
+        <h2>Contact Us</h2>
+        <form id="customForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
         </form>
-    </section>
+        <p id="responseMessage" style="color: green;"></p>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Timesaver Auto. All Rights Reserved.</p>
-    </footer>
-
-    <script
-       type="text/javascript"
-       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-   </script>
-   
     <script>
-        (function() {
-            emailjs.init({
-                publicKey: "h_3KIU51s7WnOhsGy"
-            });
-        })();
-
-        const oilRequirements = {
-            "Toyota": {
-                "Camry": 4.5,
-                "Corolla": 4.0,
-                "RAV4": 4.5
-            },
-            "Honda": {
-                "Civic": 4.5,
-                "Accord": 4.5,
-                "CR-V": 5.0
-            },
-            "Ford": {
-                "Focus": 4.0,
-                "Fusion": 5.0,
-                "Escape": 5.0
-            },
-            "Chevrolet": {
-                "Malibu": 4.5,
-                "Impala": 5.0,
-                "Equinox": 5.0
-            },
-            "Nissan": {
-                "Altima": 5.0,
-                "Sentra": 4.0,
-                "Rogue": 5.0
-            },
-            "BMW": {
-                "3 Series": 5.0,
-                "X5": 6.5,
-                "X3": 6.5
-            },
-            "Mercedes": {
-                "C-Class": 5.5,
-                "E-Class": 6.0,
-                "GLC": 6.5
-            },
-            "Volkswagen": {
-                "Golf": 5.0,
-                "Passat": 5.5,
-                "Tiguan": 5.5
-            },
-            "Audi": {
-                "A3": 5.0,
-                "A4": 5.5,
-                "Q5": 6.0
-            }
-            // Add more makes and models as necessary
-        };
-
-        function selectService(service) {
-            document.getElementById('service').value = service;
-        }
-
-        function scrollToForm() {
-            document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function populateDropdown(id, options, defaultText) {
-            const select = document.getElementById(id);
-            select.innerHTML = `<option value="" disabled selected>${defaultText}</option>`; // Set default option
-            options.forEach(option => {
-                let opt = document.createElement("option");
-                opt.value = option;
-                opt.textContent = option;
-                select.appendChild(opt);
-            });
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const years = Array.from({length: 16}, (_, i) => (2025 - i)).map(year => year.toString());
-            const makes = Object.keys(oilRequirements);
-            const times = Array.from({length: 16}, (_, i) => {
-                const hour = i + 6;
-                return (hour > 12 ? hour - 12 : hour) + (hour < 12 ? ' AM' : ' PM');
-            });
-
-            populateDropdown("year", years, "YEAR");
-            populateDropdown("make", makes, "MAKE");
-            populateDropdown("time", times, "Select Time");
-
-            const makeSelect = document.getElementById("make");
-            const modelSelect = document.getElementById("model");
-
-            makeSelect.addEventListener("change", function() {
-                const selectedMake = this.value;
-                const availableModels = Object.keys(oilRequirements[selectedMake] || {});
-                populateDropdown("model", availableModels, "MODEL");
-                updateServicePrice(); // Update price when make changes
-            });
-
-            modelSelect.addEventListener("change", updateServicePrice);
-        });
-
-        function updateServicePrice() {
-            const make = document.getElementById('make').value;
-            const model = document.getElementById('model').value;
-            const serviceSelect = document.getElementById('service');
-            let price = 0;
-
-            if (make && model && oilRequirements[make][model] !== undefined) {
-                const litres = oilRequirements[make][model];
-                price = (litres * 9) + 30; // Base price
-                if (make === "BMW" || make === "Mercedes") {
-                    price += 50; // Additional fee for BMW and Mercedes
-                }
-            }
-
-            // Update service dropdown text
-            serviceSelect.options[0].textContent = `Synthetic Oil Change - $${price.toFixed(2)}`;
-        }
-
-        function handleFormSubmit(event) {
+        document.getElementById("customForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
-            const form = document.getElementById('bookingForm');
-            const formData = new FormData(form);
-
-            const data = {
-                service: formData.get('service'),
-                year: formData.get('year'),
-                make: formData.get('make'),
-                model: formData.get('model'),
-                name: formData.get('name'),
-                phone: formData.get('phone'),
-                address: formData.get('address'),
-                date: formData.get('date'),
-                time: formData.get('time'),
+            let formData = {
+                name: document.querySelector("[name='name']").value,
+                email: document.querySelector("[name='email']").value,
+                message: document.querySelector("[name='message']").value
             };
-            console.log("Sending Data:", data);
-            emailjs.send("service_9mh03c1", "template_yzvxv4e", data)
-    .then((response) => {
-                    alert('Booking submitted successfully!');
-                    form.reset(); // Reset the form after submission
-                }, (error) => {
-                    console.error('EmailJS Error:', error); // Log the error response
-                    alert('Failed to send booking. Please try again later.');
-                });
-        }
+
+            fetch("https://script.google.com/macros/s/AKfycbwjB5PPLVdQgF8o7znCX0EDzylXqcTgNe35C4om0i15UQB93nnN2btbTK8dU0s0DoYNsw/exec", {
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers: { "Content-Type": "application/json" }
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("responseMessage").textContent = "Form submitted successfully!";
+                document.getElementById("customForm").reset();
+            })
+            .catch(error => console.error("Error:", error));
+        });
     </script>
+
 </body>
 </html>
