@@ -4,49 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timesaver Auto - Mobile Oil & Tire Services</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f8f2;
-            color: #1c2b38;
+            color: #16263d;
             margin: 0;
             padding: 0;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
-
         header {
-            background-color: #1c2b38;
+            background-color: #16263d;
             color: #f8f8f2;
             padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         header img {
-            height: 60px;
+            max-width: 20%;
+            max-height: 20%;
+            width: auto;
+            height: auto;
         }
-
         nav ul {
             list-style: none;
             padding: 0;
         }
-
         nav ul li {
             display: inline;
             margin: 0 15px;
         }
-
         nav ul li a {
             color: #f8f8f2;
             text-decoration: none;
             font-size: 18px;
         }
-
         .cta-button {
             display: inline-block;
             background-color: #e8be3f;
@@ -57,32 +50,33 @@
             text-decoration: none;
             border-radius: 5px;
         }
-
-        .service-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .service-buttons button {
-            background-color: #e8be3f;
-            color: #1c2b38;
-            padding: 10px 20px;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .service-buttons button:hover {
-            background-color: #d1a830;
-        }
-
         section {
             padding: 50px 20px;
         }
-
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .service-item, .testimonial {
+            background-color: #eef1f5;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+        .service-button {
+            display: inline-block;
+            background-color: #e8be3f;
+            color: #1c2b38;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
         #bookingForm {
             display: flex;
             flex-direction: column;
@@ -100,85 +94,112 @@
             font-size: 16px;
             box-sizing: border-box;
         }
-
         footer {
-            margin-top: auto;
-            padding: 20px;
             background-color: #1c2b38;
             color: #f8f8f2;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 20px;
+        }
+        .service-image, .hero-image {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
+
 <body>
     <header>
-        <img src="logo20.png" alt="Timesaver Auto Logo">
+        <img src="images/TimeSaverLogo.jpg" alt="Timesaver Auto Logo">
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="#book">Book Now</a></li>
             </ul>
         </nav>
     </header>
-
-    <section id="book">
-        <h2 id="schedule-title">Schedule a Service</h2>
-        <div class="service-buttons">
-            <button onclick="selectService('oil-change'); scrollToForm();">Synthetic Oil Change</button>
-            <button onclick="selectService('tire-swap'); scrollToForm();">Seasonal Tire Swap</button>
-            <button onclick="selectService('tire-rotation'); scrollToForm();">Tire Rotation</button>
-            <button onclick="selectService('battery'); scrollToForm();">Battery Testing</button>
-            <button onclick="selectService('brake-repair'); scrollToForm();">Brake Repair</button>
-            <button onclick="selectService('suspension-repair'); scrollToForm();">Suspension Repair</button>
+   
+    <section id="home">
+        <h1>Trustworthy, Reliable, Convenient</h1>
+        <p>Mobile Oil & Tire Services at Your Location!</p>
+        <img src="images/hero-image.jpg" alt="Auto Service" class="hero-image">
+        <a href="#book" class="cta-button">Book Now</a>
+    </section>
+   
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <button class="service-button" onclick="selectService('oil-change'); scrollToForm();">Mobile Oil Changes - from $59.99</button>
+            <button class="service-button" onclick="selectService('tire-swap'); scrollToForm();">Seasonal Tire Swaps - $49.99</button>
+            <button class="service-button" onclick="selectService('tire-rotation'); scrollToForm();">Tire Rotations & Balancing - $39.99</button>
+            <button class="service-button" onclick="selectService('battery'); scrollToForm();">Battery Replacements & Jumpstarts - Get a Quote</button>
+            <button class="service-button" onclick="selectService('brake-repair'); scrollToForm();">Brake Repairs & Replacements - Get a Quote</button>
+            <button class="service-button" onclick="selectService('suspension-repair'); scrollToForm();">Suspension Repairs & Replacements - Get a Quote</button>
         </div>
-        <form id="bookingForm" onsubmit="handleFormSubmit(event)">
-            <select id="year" name="year" required>
-                <option value="" disabled selected>YEAR</option>
-            </select>
-            <select id="make" name="make" required>
-                <option value="" disabled selected>MAKE</option>
-            </select>
-            <select id="model" name="model" required>
-                <option value="" disabled selected>MODEL</option>
-            </select>
+    </section>
+   
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Timesaver Auto is a mobile automotive service provider dedicated to bringing professional and reliable oil and tire services directly to you. With a focus on convenience and quality, we ensure that your vehicle maintenance is hassle-free, whether at home, work, or on the go.</p>
+        <p>Connect with us on Facebook: <a href="https://www.facebook.com/profile.php?id=61572515112749" target="_blank">Timesaver Auto</a></p>
+        <p>Meet the Owner/Operator: <a href="https://www.facebook.com/profile.php?id=100078002734169" target="_blank">Owner's Profile</a></p>
+    </section>
+   
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <p>⭐⭐⭐⭐⭐ "Timesaver Auto made it so easy! They changed my oil right at my office."</p>
+        <p>⭐⭐⭐⭐⭐ "Fast, reliable, and professional. Highly recommend!"</p>
+    </section>
+   
+    <section id="book">
+        <img src="images/TinoSofia.webp" alt="Owner Profile Photo" class="profile-photo">
+        <h2>Schedule a Service</h2>
+        <form id="bookingForm"action="https://formspree.io/f/xqaerapw" method="POST">
+            <select id="year" name="year" required=""><option value="" disabled="" selected="">YEAR</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option></select>
+            <select id="make" name="make" required=""><option value="" disabled="" selected="">MAKE</option><option value="BMW">BMW</option><option value="Ford">Ford</option><option value="GMC">GMC</option><option value="Honda">Honda</option><option value="Hyundai">Hyundai</option><option value="Kia">Kia</option><option value="Mercedes">Mercedes</option><option value="Toyota">Toyota</option><option value="Volkswagen">Volkswagen</option></select>
+            <select id="model" name="model" required=""><option value="" disabled="" selected="">MODEL</option><option value="EV6">EV6</option><option value="Forte">Forte</option><option value="K5">K5</option><option value="Niro">Niro</option><option value="Optima">Optima</option><option value="Seltos">Seltos</option><option value="Sorento">Sorento</option><option value="Soul">Soul</option><option value="Sportage">Sportage</option><option value="Telluride">Telluride</option></select>
             <select id="service" name="service">
-                <option value="oil-change">Synthetic Oil Change - from $69.99</option>
+                <option value="oil-change">Synthetic Oil Change - $0.00</option>
                 <option value="tire-swap">Seasonal Tire Swap - $49.99</option>
                 <option value="tire-rotation">Tire Rotation - $49.99</option>
-                <option value="battery">Battery Testing - Diagnose & Quote - $49.99</option>
-                <option value="brake-repair">Brake Repair - Diagnose & Quote - $49.99</option>
-                <option value="suspension-repair">Suspension Repair - Diagnose & Quote - $49.99</option>
+                <option value="battery">Battery Testing - Diagnose &amp; Quote - $49.99</option>
+                <option value="brake-repair">Brake Repair - Diagnose &amp; Quote - $49.99</option>
+                <option value="suspension-repair">Suspension Repair - Diagnose &amp; Quote - $49.99</option>
             </select>
-            <input type="text" id="name" name="name" placeholder="Email address" required>
-            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
-            <input type="text" id="address" name="address" placeholder="Your Address" required>
+            <input type="text" id="name" name="name" placeholder="Email address" required="">
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required="">
+            <input type="text" id="address" name="address" placeholder="Your Address" required="">
             <label for="date">Select a Date:</label>
-            <input type="date" id="date" name="date" required>
-            <select id="time" name="time" required>
-                <option value="" disabled selected>Select Time</option>
-            </select>
+            <input type="date" id="date" name="date" required="">
+            <select id="time" name="time" required=""><option value="" disabled="" selected="">Select Time</option><option value="6 AM">6 AM</option><option value="7 AM">7 AM</option><option value="8 AM">8 AM</option><option value="9 AM">9 AM</option><option value="10 AM">10 AM</option><option value="11 AM">11 AM</option><option value="12 PM">12 PM</option><option value="1 PM">1 PM</option><option value="2 PM">2 PM</option><option value="3 PM">3 PM</option><option value="4 PM">4 PM</option><option value="5 PM">5 PM</option><option value="6 PM">6 PM</option><option value="7 PM">7 PM</option><option value="8 PM">8 PM</option><option value="9 PM">9 PM</option></select>
             <button type="submit">Book Now</button>
         </form>
     </section>
-
+   
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>📞 Call us: (Your Phone Number)</p>
+        <p>📍 Service Areas: (List of Cities)</p>
+    </section>
+   
     <footer>
-        <p>&copy; 2025 Timesaver Auto. All Rights Reserved.</p>
+        <p>© 2025 Timesaver Auto. All rights reserved.</p>
     </footer>
 
-    <script
-       type="text/javascript"
-       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-   </script>
-   
-    <script>
-        (function() {
-            emailjs.init({
-                publicKey: "h_3KIU51s7WnOhsGy"
-            });
-        })();
 
+    <script>
         const oilRequirements = {
             "BMW": {
                 "3 Series": 5.0, // Verified
@@ -335,34 +356,6 @@
 
             // Update service dropdown text
             serviceSelect.options[0].textContent = `Synthetic Oil Change - $${price.toFixed(2)}`;
-        }
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-
-            const form = document.getElementById('bookingForm');
-            const formData = new FormData(form);
-
-            const data = {
-                service: formData.get('service'),
-                year: formData.get('year'),
-                make: formData.get('make'),
-                model: formData.get('model'),
-                name: formData.get('name'),
-                phone: formData.get('phone'),
-                address: formData.get('address'),
-                date: formData.get('date'),
-                time: formData.get('time'),
-            };
-            console.log("Sending Data:", data);
-            emailjs.send("service_9mh03c1", "template_yzvxv4e", data)
-    .then((response) => {
-                    alert('Booking submitted successfully!');
-                    form.reset(); // Reset the form after submission
-                }, (error) => {
-                    console.error('EmailJS Error:', error); // Log the error response
-                    alert('Failed to send booking. Please try again later.');
-                });
         }
     </script>
 </body>
