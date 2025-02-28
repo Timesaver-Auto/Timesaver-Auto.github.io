@@ -180,53 +180,98 @@
         })();
 
         const oilRequirements = {
-            "Toyota": {
-                "Camry": 4.5,
-                "Corolla": 4.0,
-                "RAV4": 4.5
-            },
-            "Honda": {
-                "Civic": 4.5,
-                "Accord": 4.5,
-                "CR-V": 5.0
-            },
-            "Ford": {
-                "Focus": 4.0,
-                "Fusion": 5.0,
-                "Escape": 5.0
-            },
-            "Chevrolet": {
-                "Malibu": 4.5,
-                "Impala": 5.0,
-                "Equinox": 5.0
-            },
-            "Nissan": {
-                "Altima": 5.0,
-                "Sentra": 4.0,
-                "Rogue": 5.0
-            },
             "BMW": {
                 "3 Series": 5.0,
-                "X5": 6.5,
-                "X3": 6.5
+                "5 Series": 6.5,
+                "X3": 6.5,
+                "X5": 6.9,
+                "X7": 7.4
+            },
+            "Ford": {
+                "Bronco": 6.0,
+                "Bronco Sport": 5.0,
+                "Edge": 5.5,
+                "Escape": 5.0,
+                "Explorer": 5.7,
+                "F-150": 6.0,
+                "Fusion": 5.0,
+                "Maverick": 5.5,
+                "Mustang": 5.7,
+                "Ranger": 5.5
+            },
+            "GMC": {
+                "Acadia": 6.0,
+                "Canyon": 5.7,
+                "Savana": 6.5,
+                "Sierra 1500": 7.6,
+                "Terrain": 5.7,
+                "Yukon": 7.9
+            },
+            "Honda": {
+                "Accord": 4.5,
+                "Civic": 4.5,
+                "CR-V": 5.0,
+                "Fit": 3.8,
+                "HR-V": 3.7,
+                "Insight": 4.2,
+                "Passport": 5.7,
+                "Pilot": 5.7,
+                "Ridgeline": 5.7
+            },
+            "Hyundai": {
+                "Elantra": 4.2,
+                "Ioniq": 4.5,
+                "Ioniq 5": 5.0,
+                "Kona": 4.8,
+                "Palisade": 6.2,
+                "Santa Fe": 5.7,
+                "Sonata": 4.8,
+                "Tucson": 4.8,
+                "Venue": 4.2
+            },
+            "Kia": {
+                "EV6": 5.0,
+                "Forte": 4.2,
+                "K5": 4.8,
+                "Niro": 4.5,
+                "Optima": 4.8,
+                "Seltos": 4.8,
+                "Sorento": 5.7,
+                "Soul": 4.5,
+                "Sportage": 5.0,
+                "Telluride": 6.2
             },
             "Mercedes": {
                 "C-Class": 5.5,
                 "E-Class": 6.0,
-                "GLC": 6.5
+                "GLC": 6.5,
+                "GLE": 7.0,
+                "S-Class": 7.5
+            },
+            "Toyota": {
+                "Avalon": 4.8,
+                "Camry": 4.5,
+                "C-HR": 4.4,
+                "Corolla": 4.0,
+                "Highlander": 5.8,
+                "RAV4": 4.5,
+                "Sienna": 5.7,
+                "Tacoma": 5.5,
+                "Tundra": 7.9,
+                "Venza": 4.8
             },
             "Volkswagen": {
+                "Atlas": 6.0,
                 "Golf": 5.0,
+                "ID.4": 5.2,
+                "Jetta": 4.8,
                 "Passat": 5.5,
                 "Tiguan": 5.5
-            },
-            "Audi": {
-                "A3": 5.0,
-                "A4": 5.5,
-                "Q5": 6.0
             }
             // Add more makes and models as necessary
         };
+         
+        
 
         function selectService(service) {
             document.getElementById('service').value = service;
