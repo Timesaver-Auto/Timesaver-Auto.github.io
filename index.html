@@ -501,9 +501,9 @@
             if (make && model && oilRequirements[make][model] !== undefined) {
                 const litres = oilRequirements[make][model];
                 price = (litres * 9) + 30; // Base price
-                <--! if (make === "BMW" || make === "Mercedes") {
-                    price += 75; // Additional fee for BMW and Mercedes
-                } -->
+                // if (make === "BMW" || make === "Mercedes") {
+                //    price += 75; // Additional fee for BMW and Mercedes
+                //}  
             }
 
             // Update service dropdown text
