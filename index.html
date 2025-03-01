@@ -518,7 +518,7 @@
                 // Case 1: If the ones column is less than 3
                 if (lastDigit < 3) {
                     // Subtract 1 from tens column, set ones column to 9
-                    wholePrice = Math.floor(wholePrice / 10) * 10 - 1 + 9;
+                    wholePrice = Math.floor(wholePrice / 10) * 10 - 1;
                 } 
                 // Case 2: If the ones column is between 3 and 6 (inclusive)
                 else if (lastDigit >= 3 && lastDigit < 7) {
