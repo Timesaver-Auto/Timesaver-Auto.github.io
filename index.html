@@ -170,7 +170,8 @@
             <select id="model" name="model" required=""><option value="" disabled="" selected="">MODEL</option><option value="EV6">EV6</option><option value="Forte">Forte</option><option value="K5">K5</option><option value="Niro">Niro</option><option value="Optima">Optima</option><option value="Seltos">Seltos</option><option value="Sorento">Sorento</option><option value="Soul">Soul</option><option value="Sportage">Sportage</option><option value="Telluride">Telluride</option></select>
             <select id="service" name="service">
                 <option value="oil-change">Full Synthetic Oil Change - $0.00</option>
-                <option value="tire-swap">Seasonal Tire Swap - $49.99</option>
+                <option value="tire-swap">Seasonal Tire Swap (on rims) - $49.99</option>
+                <option value="tire-swap">Seasonal Tire Swap (off rims) - $99.99</option>
                 <option value="tire-rotation">Tire Rotation - $49.99</option>
                 <option value="battery">Battery Testing - Diagnose &amp; Quote - $49.99</option>
                 <option value="brake-repair">Brake Repair - Diagnose &amp; Quote - $49.99</option>
@@ -507,7 +508,7 @@
             }
 
             // Update service dropdown text
-            serviceSelect.options[0].textContent = `Synthetic Oil Change - $${price.toFixed(2)}`;
+            serviceSelect.options[0].textContent = `Full Synthetic Oil Change - $${price.toFixed(2)}`;
         }
     </script>
 </body>
