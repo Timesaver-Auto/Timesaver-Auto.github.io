@@ -227,6 +227,21 @@
 
 
     <script>
+        window.onload = function() {
+            const options = document.querySelectorAll('#time option');
+    
+            // Randomly disable 4 times
+            let disabledCount = 0;
+            while (disabledCount < 4) {
+            const randomIndex = Math.floor(Math.random() * options.length);
+            const option = options[randomIndex];
+            if (!option.disabled && option.value !== "") {  // Skip already disabled options and the default one
+                option.disabled = true;
+                disabledCount++;
+                }
+            }
+        };
+        
         const oilRequirements = {
             "Acura": {
                 "MDX": 5.7,
