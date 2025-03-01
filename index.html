@@ -227,20 +227,66 @@
 
 
     <script>
-        window.onload = function() {
-            const options = document.querySelectorAll('#time option');
-    
-            // Randomly disable 8 times
-            let disabledCount = 0;
-            while (disabledCount < 4) {
-            const randomIndex = Math.floor(Math.random() * options.length);
-            const option = options[randomIndex];
-            if (!option.disabled && option.value !== "") {  // Skip already disabled options and the default one
-                option.disabled = true;
-                disabledCount++;
+ //       window.onload = function() {
+ //           const options = document.querySelectorAll('#time option');
+ //   
+ //           // Randomly disable 8 times
+ //           let disabledCount = 0;
+ //           while (disabledCount < 4) {
+ //           const randomIndex = Math.floor(Math.random() * options.length);
+ //           const option = options[randomIndex];
+ //           if (!option.disabled && option.value !== "") {  // Skip already disabled options and the default one
+ //               option.disabled = true;
+ //               disabledCount++;
+ //               }
+ //           }
+ //       };
+        // Listen for changes on the date input field
+        document.getElementById('date').addEventListener('change', function() {
+            const selectedDate = this.value; // Get the selected date
+            const options = document.querySelectorAll('#time option'); // Get all the options in the time dropdown
+
+            // Re-enable all options to reset previous disabled states
+            options.forEach(option => {
+                option.disabled = false;
+            });
+
+            // Disable random times based on the selected date
+            disableRandomTimes(selectedDate, options);
+        });
+
+        // Function to disable specific or random times based on the selected date
+        function disableRandomTimes(selectedDate, options) {
+            let timesToDisable = [];
+
+            // Define which times to disable for each specific date
+            if (selectedDate === '2025-03-01') {
+                // For March 1st, disable specific random times
+                timesToDisable = ['7 AM', '9 AM', '12 PM', '3 PM']; // Modify this as per your requirement
+            } else if (selectedDate === '2025-03-02') {
+                // For March 2nd, disable a different set of random times
+                timesToDisable = ['10 AM', '2 PM', '4 PM', '8 PM']; // Modify this as per your requirement
+            } else {
+                // For other dates, disable 4 random times from the available ones
+                const allTimes = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM'];
+        
+                // Randomly pick 4 times to disable (you can adjust this number)
+                while (timesToDisable.length < 4) {
+                    const randomTime = allTimes[Math.floor(Math.random() * allTimes.length)];
+                    // Ensure we don't add a duplicate time to the list
+                    if (!timesToDisable.includes(randomTime)) {
+                        timesToDisable.push(randomTime);
+                    }
                 }
             }
-        };
+
+            // Disable the selected times in the dropdown
+            options.forEach(option => {
+                if (timesToDisable.includes(option.value)) {
+                    option.disabled = true;
+                }
+            });
+        }
         
         const oilRequirements = {
             "Acura": {
