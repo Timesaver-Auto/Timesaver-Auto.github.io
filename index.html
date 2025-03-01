@@ -267,11 +267,11 @@
                 // For March 2nd, disable a different set of random times
                 timesToDisable = ['10 AM', '2 PM', '4 PM', '8 PM']; // Modify this as per your requirement
             } else {
-                // For other dates, disable 4 random times from the available ones
+                // For other dates, disable 9 random times from the available ones
                 const allTimes = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM'];
         
-                // Randomly pick 4 times to disable (you can adjust this number)
-                while (timesToDisable.length < 4) {
+                // Randomly pick 9 times to disable (you can adjust this number)
+                while (timesToDisable.length < 9) {
                     const randomTime = allTimes[Math.floor(Math.random() * allTimes.length)];
                     // Ensure we don't add a duplicate time to the list
                     if (!timesToDisable.includes(randomTime)) {
