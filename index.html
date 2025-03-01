@@ -502,6 +502,7 @@
             if (make && model && oilRequirements[make][model] !== undefined) {
                 const litres = oilRequirements[make][model];
                 price = (litres * 9) + 30; // Base price
+                price = Math.ceil(price) - 0.01;
                 // if (make === "BMW" || make === "Mercedes") {
                 //    price += 75; // Additional fee for BMW and Mercedes
                 //}  
