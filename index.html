@@ -534,13 +534,6 @@
             }
 
         // Manipulate the prices and get the numerical result
-        const manipulatedPrice = manipulatePrice(price);
-        const manipulatedPrice2 = manipulatePrice(price2);
-
-        // Update service dropdown text with formatted prices
-        serviceSelect.options[2].textContent = `Full Synthetic Oil Change - $${manipulatedPrice.toFixed(2)}`;
-        serviceSelect.options[3].textContent = `Full Synthetic Oil Change & Tire Rotation - $${manipulatedPrice2.toFixed(2)}`;
-    
 
         price = manipulatePrice(price);
         price2 = manipulatePrice(price2);
