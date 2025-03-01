@@ -145,8 +145,8 @@
         <h2>Our Services</h2>
         <div class="services-grid">
             <button class="service-button" onclick="selectService('tire-swap'); scrollToForm();">Seasonal Tire Swap - from $49.99 </button>
-            <button class="service-button" onclick="selectService('tire-rotation'); scrollToForm();">Tire Rotation - $49.99 </button>
-            <button class="service-button" onclick="selectService('oil-change'); scrollToForm();">Synthetic Oil and Filter Change - from $59.99</button>
+            <button class="service-button" onclick="selectService('oil-change'); scrollToForm();">Synthetic Oil Change - from $59.99</button>
+            <button class="service-button" onclick="selectService('oil-tire-rotation'); scrollToForm();">Sythetic Oil Change and Tire Rotation - from $109.99 </button>
             <button class="service-button" onclick="selectService('battery'); scrollToForm();">Battery Diagnostics - Diagnose and Advise - $49.99 </button>
             <button class="service-button" onclick="selectService('brake-repair'); scrollToForm();">Brake Repairs & Replacements - Diagnose and Advise - $49.99 </button>
             <button class="service-button" onclick="selectService('suspension-repair'); scrollToForm();">Suspension Repairs - Diagnose and Advise - $49.99 </button>
@@ -172,7 +172,7 @@
                 <option value="tire-swap">Seasonal Tire Swap (on rims) - $49.99</option>
                 <option value="tire-swap off rims">Seasonal Tire Swap (off rims) - $99.99</option>
                 <option value="oil-change">Full Synthetic Oil Change - $0.00</option>
-                <option value="tire-rotation">Tire Rotation - $49.99</option>
+                <option value='oil-tire-rotation'>Full Synthetic Oil Change and Tire Rotation - $0.00</option>
                 <option value="battery">Battery Testing - Diagnose &amp; Quote - $49.99</option>
                 <option value="brake-repair">Brake Repair - Diagnose &amp; Quote - $49.99</option>
                 <option value="suspension-repair">Suspension Repair - Diagnose &amp; Quote - $49.99</option>
@@ -503,6 +503,7 @@
                 const litres = oilRequirements[make][model];
                 price = (litres * 9) + 30; // Base price
                 price = Math.ceil(price) - 0.01;
+                price2 = price + 50;
                 // if (make === "BMW" || make === "Mercedes") {
                 //    price += 75; // Additional fee for BMW and Mercedes
                 //}  
@@ -510,6 +511,7 @@
 
             // Update service dropdown text
             serviceSelect.options[2].textContent = `Full Synthetic Oil Change - $${price.toFixed(2)}`;
+            serviceSelect.options[3].textContent = `Full Synthetic Oil Change & Tire Rotation- $${price2.toFixed(2)}`;
         }
     </script>
 </body>
