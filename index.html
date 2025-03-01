@@ -510,23 +510,23 @@
             }
 
         function manipulatePrice(price) {
-            // Round the price to the nearest whole number
-            let roundedPrice = Math.floor(price);
-
-            // Find the last digit of the price
-            let lastDigit = roundedPrice % 10;
+            let roundedPrice = Math.floor(price); // Get the whole number part of the price
+            let lastDigit = roundedPrice % 10; // Get the last digit of the whole number
 
             if (lastDigit < 3) {
-                // If the last digit is less than 3, subtract 1 from the tens column and set ones to 9
+                // If the ones column is less than 3, subtract 1 from the tens column, ones = 9, and cents = .99
                 roundedPrice = Math.floor(roundedPrice / 10) * 10 - 1 + 9;
-            } else {
-                // If the last digit is 3 or more, set ones to 4 and add .99 cents
+            } else if (lastDigit >= 3 && lastDigit < 7) {
+                // If the ones column is between 3 and 6 (inclusive), ones = 4, and cents = .99
                 roundedPrice = Math.floor(roundedPrice / 10) * 10 + 4;
+            } else {
+                // If the ones column is 7 or greater, ones = 9, and cents = .99
+                roundedPrice = Math.floor(roundedPrice / 10) * 10 + 9;
             }
 
-            // Return the manipulated price as a number with .99 added
+            // Return the manipulated price with .99 added
             return roundedPrice + 0.99;
-            }  
+        }
 
         price = manipulatePrice(price);
         price2 = manipulatePrice(price2);
