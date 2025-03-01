@@ -509,30 +509,30 @@
                 //}  
             }
 
-            function manipulatePrice(price) {
-                // Round the price to the nearest whole number
-                let roundedPrice = Math.floor(price);
+        function manipulatePrice(price) {
+            // Round the price to the nearest whole number
+            let roundedPrice = Math.floor(price);
 
-                // Find the last digit of the price
-                let lastDigit = roundedPrice % 10;
+            // Find the last digit of the price
+            let lastDigit = roundedPrice % 10;
 
-                if (lastDigit < 3) {
-                    // If the last digit is less than 3, subtract 1 from the tens column and set ones to 9
-                    roundedPrice = Math.floor(roundedPrice / 10) * 10 - 1 + 9;
-                } else {
-                    // If the last digit is 3 or more, set ones to 4 and add .99 cents
-                    roundedPrice = Math.floor(roundedPrice / 10) * 10 + 4;
-                }
-
-                // Return the formatted price with 99 cents
-                return `$${(roundedPrice + 0.99).toFixed(2)}`;
+            if (lastDigit < 3) {
+                // If the last digit is less than 3, subtract 1 from the tens column and set ones to 9
+                roundedPrice = Math.floor(roundedPrice / 10) * 10 - 1 + 9;
+            } else {
+                // If the last digit is 3 or more, set ones to 4 and add .99 cents
+                roundedPrice = Math.floor(roundedPrice / 10) * 10 + 4;
             }
 
-            price = manipulatePrice(price);
-            price2 = manipulatePrice(price2);
-            // Update service dropdown text
-            serviceSelect.options[2].textContent = `Full Synthetic Oil Change - $${price.toFixed(2)}`;
-            serviceSelect.options[3].textContent = `Full Synthetic Oil Change & Tire Rotation- $${price2.toFixed(2)}`;
+            // Return the manipulated price as a number with .99 added
+            return roundedPrice + 0.99;
+            }  
+
+        price = manipulatePrice(price);
+        price2 = manipulatePrice(price2);
+        // Update service dropdown text
+        serviceSelect.options[2].textContent = `Full Synthetic Oil Change - $${price.toFixed(2)}`;
+        serviceSelect.options[3].textContent = `Full Synthetic Oil Change & Tire Rotation- $${price2.toFixed(2)}`;
         }
     </script>
 </body>
