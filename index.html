@@ -509,24 +509,29 @@
                 //}  
             }
 
-        function manipulatePrice(price) {
-            let roundedPrice = Math.floor(price); // Get the whole number part of the price
-            let lastDigit = roundedPrice % 10; // Get the last digit of the whole number
+            function manipulatePrice(price) {
+                let wholePrice = Math.floor(price); // Get the whole number part of the price
+                let lastDigit = wholePrice % 10; // Get the last digit (ones column)
 
-            if (lastDigit < 3) {
-                // If the ones column is less than 3, subtract 1 from the tens column, ones = 9, and cents = .99
-                roundedPrice = Math.floor(roundedPrice / 10) * 10 - 1 + 9;
-            } else if (lastDigit >= 3 && lastDigit < 7) {
-                // If the ones column is between 3 and 6 (inclusive), ones = 4, and cents = .99
-                roundedPrice = Math.floor(roundedPrice / 10) * 10 + 4;
-            } else {
-                // If the ones column is 7 or greater, ones = 9, and cents = .99
-                roundedPrice = Math.floor(roundedPrice / 10) * 10 + 9;
+                // Case 1: If the ones column is less than 3
+                if (lastDigit < 3) {
+                    // Subtract 1 from tens column, set ones column to 9
+                    wholePrice = Math.floor(wholePrice / 10) * 10 - 1 + 9;
+                } 
+                // Case 2: If the ones column is between 3 and 6 (inclusive)
+                else if (lastDigit >= 3 && lastDigit < 7) {
+                    // Set ones column to 4
+                    wholePrice = Math.floor(wholePrice / 10) * 10 + 4;
+                } 
+                // Case 3: If the ones column is 7 or greater
+                else {
+                    // Set ones column to 9
+                    wholePrice = Math.floor(wholePrice / 10) * 10 + 9;
+                }
+
+                // Return the manipulated price with .99 added
+                return wholePrice + 0.99;
             }
-
-            // Return the manipulated price with .99 added
-            return roundedPrice + 0.99;
-        }
 
         price = manipulatePrice(price);
         price2 = manipulatePrice(price2);
